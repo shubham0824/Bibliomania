@@ -25,7 +25,8 @@ class Library:
                 except Exception as e:
                     print(e)
 
-
+    def donate(self,bookdonatename):
+        self.listofbooks.append(bookdonatename)
 
     def returnbook(self,clnt_name,book):
             if book not in self.listofbooks:
@@ -60,7 +61,7 @@ if __name__ == '__main__':
         print(f"Welcome to the {l1.library_name}.\n")
         option = input("Enter 'dis' for list of books available in the library\n"
                         "Enter 'lend' for lending a book from library if available\n"
-                        
+                        "Enter 'don' to donate a book to library\n"
                         "Enter 'ret' to return a book to library\n"
                     
                        "and Enter 'quit' to quit for library menu\n")
@@ -75,9 +76,17 @@ if __name__ == '__main__':
             book_name = input("Which book you want to Lend: ")
             l1.lendbooks(client_name.lower(),book_name)
 
-
-
-
+        elif option.lower() == 'don':
+            bookdname = input("Which book you want to Donate: ")
+            l1.donate(bookdname)
+            op = 'y'
+            while op.lower() != 'n':
+                op = input("Want to Donate more books enter 'y' if yes or 'n' to exit: ")
+                if op.lower() == 'n':
+                    continue
+                else:
+                    bookdname = input("Which book you want to Donate: ")
+                    l1.donate(bookdname)
 
         elif option.lower() == 'ret':
             client_name = input("Please Provide your Full name: ")
