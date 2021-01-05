@@ -47,6 +47,8 @@ class Library:
                 except Exception as e:
                     print(e)
 
+    def deletebook(self,bookname):
+        self.listofbooks.remove(bookname)
 
 
 
@@ -63,7 +65,7 @@ if __name__ == '__main__':
                         "Enter 'lend' for lending a book from library if available\n"
                         "Enter 'don' to donate a book to library\n"
                         "Enter 'ret' to return a book to library\n"
-                    
+                        "Enter 'del' to delete a book from library\n"
                        "and Enter 'quit' to quit for library menu\n")
 
 
@@ -93,8 +95,12 @@ if __name__ == '__main__':
             book_name = input("Which book you want to Return: ")
             l1.returnbook(client_name.lower(),book_name)
 
+        elif option.lower() == 'del':
+            db = input("Enter bookname which you want to delete: ")
+            l1.deletebook(db)
 
-
+        elif option.lower() == 'quit':
+            exit()
 
         else:
             print("Wrong input, Please Enter a valid Input:")
