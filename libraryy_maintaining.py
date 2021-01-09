@@ -8,7 +8,7 @@ class Library:
         self.library_name= library_name
 
     def displaybooks(self):
-        print(f"We have following books in our: {self.library_name}")
+        print(f"\n We have following books in our: {self.library_name}\n")
         for books in listofbooks:
             print(books)
 
@@ -48,8 +48,18 @@ class Library:
                     print(e)
 
     def deletebook(self,bookname):
-        self.listofbooks.remove(bookname)
+        try:
+            self.listofbooks.remove(bookname)
+            print("Deleted")
+        except ValueError:
+            print("Book is not in Library")
 
+    def lendedbooklist1(self):
+        try:
+            for key,values in self.lendedbooklist.items():
+                print(f"{values[0]} has taken {key} on {values[1]}")
+        except:
+            print("No book lended!!!")
 
 
 
@@ -60,13 +70,14 @@ if __name__ == '__main__':
     l1 = Library(listofbooks,"Shubham's library")
 
     while True:
-        print(f"Welcome to the {l1.library_name}.\n")
-        option = input("Enter 'dis' for list of books available in the library\n"
-                        "Enter 'lend' for lending a book from library if available\n"
-                        "Enter 'don' to donate a book to library\n"
-                        "Enter 'ret' to return a book to library\n"
-                        "Enter 'del' to delete a book from library\n"
-                       "and Enter 'quit' to quit for library menu\n")
+        print(f"\n Welcome to the {l1.library_name}.\n")
+        option = input("1. Enter 'dis' for list of books available in the library\n"
+                        "2. Enter 'lend' for lending a book from library if available\n"
+                        "3. Enter 'don' to donate a book to library\n"
+                        "4. Enter 'ret' to return a book to library\n"
+                        "5. Enter 'del' to delete a book from library\n"
+                        "6. Enter 'lbl' to see the list of books lended\n"
+                        "7. Enter 'quit' to quit for library menu\n")
 
 
 
@@ -74,12 +85,12 @@ if __name__ == '__main__':
             l1.displaybooks()
 
         elif option.lower() == 'lend':
-            client_name = input("Please Provide your Full name: ")
-            book_name = input("Which book you want to Lend: ")
+            client_name = input("Please Provide your Full name: ").capitalize()
+            book_name = input("Which book you want to Lend: ").capitalize()
             l1.lendbooks(client_name.lower(),book_name)
 
         elif option.lower() == 'don':
-            bookdname = input("Which book you want to Donate: ")
+            bookdname = input("Which book you want to Donate: ").capitalize()
             l1.donate(bookdname)
             op = 'y'
             while op.lower() != 'n':
@@ -92,12 +103,15 @@ if __name__ == '__main__':
 
         elif option.lower() == 'ret':
             client_name = input("Please Provide your Full name: ")
-            book_name = input("Which book you want to Return: ")
+            book_name = input("Which book you want to Return: ").capitalize()
             l1.returnbook(client_name.lower(),book_name)
 
         elif option.lower() == 'del':
-            db = input("Enter bookname which you want to delete: ")
+            db = input("Enter bookname which you want to delete: ").capitalize()
             l1.deletebook(db)
+
+        elif option.lower() == 'lbl':
+            l1.lendedbooklist1()
 
         elif option.lower() == 'quit':
             exit()
