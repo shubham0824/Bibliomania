@@ -77,7 +77,8 @@ if __name__ == '__main__':
                         "4. Enter 'ret' to return a book to library\n"
                         "5. Enter 'del' to delete a book from library\n"
                         "6. Enter 'lbl' to see the list of books lended\n"
-                        "7. Enter 'quit' to quit for library menu\n")
+                        "7. Enter 'quit' to quit for library menu\n"
+                        ">>> ")
 
 
 
