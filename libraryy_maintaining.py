@@ -55,11 +55,11 @@ class Library:
             print("Book is not in Library")
 
     def lendedbooklist1(self):
-        try:
-            for key,values in self.lendedbooklist.items():
-                print(f"{values[0]} has taken {key} on {values[1]}")
-        except:
+        if not self.lendedbooklist:
             print("No book lended!!!")
+        else:         
+            for key,values in self.lendedbooklist.items():
+                print(f"{values[0]} has taken {key} on {values[1]}")           
 
 
 
