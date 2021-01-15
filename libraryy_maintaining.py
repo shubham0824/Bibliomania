@@ -78,7 +78,7 @@ if __name__ == '__main__':
                         "5. Enter 'del' to delete a book from library\n"
                         "6. Enter 'lbl' to see the list of books lended\n"
                         "7. Enter 'quit' to quit for library menu\n"
-                        ">>> ")
+                        ">>> ").rstrip()
 
 
 
@@ -122,7 +122,7 @@ if __name__ == '__main__':
 
         user_op = ""
         while (user_op.lower() != 'q' and user_op.lower() != 'c'):
-            user_op = input("Enter 'q' to Quit and 'c' to Continue: ")
+            user_op = input("Enter 'q' to Quit and 'c' to Continue: ").rstrip()
             if user_op.lower() == 'q':
                 exit()
             elif user_op.lower() == 'c':
