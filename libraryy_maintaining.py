@@ -99,7 +99,7 @@ if __name__ == '__main__':
                 if op.lower() == 'n':
                     continue
                 else:
-                    bookdname = input("Which book you want to Donate: ")
+                    bookdname = input("Which book you want to Donate: ").capitalize()
                     l1.donate(bookdname)
 
         elif option.lower() == 'ret':
