@@ -93,14 +93,15 @@ if __name__ == '__main__':
         elif option.lower() == 'don':
             bookdname = input("Which book you want to Donate: ").capitalize().rstrip()
             l1.donate(bookdname)
-            op = 'y'
-            while op.lower() != 'n':
+            while True:
                 op = input("Want to Donate more books enter 'y' if yes or 'n' to exit: ").rstrip()
                 if op.lower() == 'n':
-                    continue
-                else:
+                    break
+                elif op.lower() == 'y':
                     bookdname = input("Which book you want to Donate: ").capitalize().rstrip()
                     l1.donate(bookdname)
+                else:
+                    print("Wrong Input!!! Enter a valid input.")
 
         elif option.lower() == 'ret':
             client_name = input("Please Provide your Full name: ")
