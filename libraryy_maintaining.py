@@ -87,28 +87,28 @@ if __name__ == '__main__':
 
         elif option.lower() == 'lend':
             client_name = input("Please Provide your Full name: ").capitalize()
-            book_name = input("Which book you want to Lend: ").capitalize()
+            book_name = input("Which book you want to Lend: ").capitalize().rstrip()
             l1.lendbooks(client_name.lower(),book_name)
 
         elif option.lower() == 'don':
-            bookdname = input("Which book you want to Donate: ").capitalize()
+            bookdname = input("Which book you want to Donate: ").capitalize().rstrip()
             l1.donate(bookdname)
             op = 'y'
             while op.lower() != 'n':
-                op = input("Want to Donate more books enter 'y' if yes or 'n' to exit: ")
+                op = input("Want to Donate more books enter 'y' if yes or 'n' to exit: ").rstrip()
                 if op.lower() == 'n':
                     continue
                 else:
-                    bookdname = input("Which book you want to Donate: ").capitalize()
+                    bookdname = input("Which book you want to Donate: ").capitalize().rstrip()
                     l1.donate(bookdname)
 
         elif option.lower() == 'ret':
             client_name = input("Please Provide your Full name: ")
-            book_name = input("Which book you want to Return: ").capitalize()
+            book_name = input("Which book you want to Return: ").capitalize().rstrip()
             l1.returnbook(client_name.lower(),book_name)
 
         elif option.lower() == 'del':
-            db = input("Enter bookname which you want to delete: ").capitalize()
+            db = input("Enter bookname which you want to delete: ").capitalize().rstrip()
             l1.deletebook(db)
 
         elif option.lower() == 'lbl':
@@ -118,7 +118,7 @@ if __name__ == '__main__':
             exit()
 
         else:
-            print("Wrong input, Please Enter a valid Input:")
+            print("Wrong input, Please Enter a valid Input:").rstrip()
 
         user_op = ""
         while (user_op.lower() != 'q' and user_op.lower() != 'c'):
