@@ -72,16 +72,16 @@ if __name__ == '__main__':
     while True:
         print(f"\n Welcome to the {l1.library_name}.\n")
         print("Press :-")
-        option = input("1. To see the list of available books in Library\n"
+        option = int(input("1. To see the list of available books in Library\n"
                        "2. Borrow a book from Library\n"
                        "3. Return a borrowed book\n"
                        "4. Donate a book to Library\n"
                        "5. Quit\n"
                        "6. Delete a book from Library(Only for Admin)\n"
                        "7.See the list of books borrowed and by whom(Only for Admin)\n"
-                       ">>> ").rstrip()
+                       ">>> ").rstrip())
 
-        if option.lower() == 'dis':
+        if option == 1 :
             l1.displaybooks()
 
         elif option.lower() == 'lend':
@@ -122,7 +122,7 @@ if __name__ == '__main__':
 
         user_op = ""
         while (user_op.lower() != 'q' and user_op.lower() != 'c'):
-            user_op = input("Enter 'q' to Quit and 'c' to Continue: ").rstrip()
+            user_op = input("\nEnter 'q' to Quit and 'c' to Continue: ").rstrip()
             if user_op.lower() == 'q':
                 exit()
             elif user_op.lower() == 'c':
