@@ -65,7 +65,7 @@ class Library:
 
 if __name__ == '__main__':
 
-    listofbooks = ["Python","C++","Java","Javascript","Django","Flask","HTML","CSS","Node.js","Mongodb"]
+    listofbooks = ["Python","C++","Java","Javascript","Django","Flask","Flutter","Kotlin","React","Angular","Node.js","Mongodb"]
 
     l1 = Library(listofbooks,"Shubham's library")
 
