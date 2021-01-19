@@ -84,12 +84,17 @@ if __name__ == '__main__':
         if option == 1 :
             l1.displaybooks()
 
-        elif option.lower() == 'lend':
+        elif option == 2:
             client_name = input("Please Provide your Full name: ").capitalize()
             book_name = input("Which book you want to Lend: ").capitalize().rstrip()
             l1.lendbooks(client_name.lower(),book_name)
 
-        elif option.lower() == 'don':
+        elif option == 3:
+            client_name = input("Please Provide your Full name: ")
+            book_name = input("Which book you want to Return: ").capitalize().rstrip()
+            l1.returnbook(client_name.lower(),book_name)
+
+        elif option == 4:
             bookdname = input("Which book you want to Donate: ").capitalize().rstrip()
             l1.donate(bookdname)
             while True:
@@ -102,20 +107,15 @@ if __name__ == '__main__':
                 else:
                     print("Wrong Input!!! Enter a valid input.")
 
-        elif option.lower() == 'ret':
-            client_name = input("Please Provide your Full name: ")
-            book_name = input("Which book you want to Return: ").capitalize().rstrip()
-            l1.returnbook(client_name.lower(),book_name)
+        elif option == 5:
+            exit()
 
-        elif option.lower() == 'del':
+        elif option == 6:
             db = input("Enter bookname which you want to delete: ").capitalize().rstrip()
             l1.deletebook(db)
 
-        elif option.lower() == 'lbl':
+        elif option == 7:
             l1.lendedbooklist1()
-
-        elif option.lower() == 'quit':
-            exit()
 
         else:
             print("Wrong input, Please Enter a valid Input:").rstrip()
