@@ -1,4 +1,6 @@
 import  datetime
+from Credentials import credential
+username, password = credential()
 
 class Library:
     def __init__(self,listofbooks,library_name):
@@ -19,7 +21,7 @@ class Library:
                 print("Lended")
             else:
                 try:
-                    print(f"Sorry the book is lended by {self.lendedbooklist[book_name][0]}")
+                    print(f"Sorry the book is borrowed by {self.lendedbooklist[book_name][0]}")
                 except KeyError:
                     print("Sorry The book is not available in the library stock: ")
                 except Exception as e:
@@ -111,8 +113,19 @@ if __name__ == '__main__':
             exit()
 
         elif option == 6:
-            db = input("Enter bookname which you want to delete: ").capitalize().rstrip()
-            l1.deletebook(db)
+            while True:
+                username_by_user = input("Enter Your User Name: ")
+                password_by_user = input("Enter Your Paasword: ")
+                if username_by_user == username and password_by_user == password:
+                    db = input("Enter bookname which you want to delete: ").capitalize().rstrip()
+                    l1.deletebook(db)
+                else:
+                    print("Wrong Credentials!!!")
+                    option = int(input("Want to try more Press 1 otherwise Press any key to exit: "))
+                    if option == 1:
+                        continue
+                    else:
+                        break
 
         elif option == 7:
             l1.lendedbooklist1()
