@@ -1,24 +1,25 @@
 import datetime
+
 class Library:
     def __init__(self,listofbooks,library_name):
         date_time = datetime.datetime.today()
-        self.lendedbooklist = {}
+        self.borrowedbooklist = {}
         self.listofbooks = listofbooks
-        self.library_name= library_name
+        self.library_name = library_name
 
     def displaybooks(self):
         print(f"\n We have following books in our: {self.library_name}\n")
-        for books in listofbooks:
+        for books in self.listofbooks:
             print(books)
 
-    def lendbooks(self,name,book_name):
+    def borrowbooks(self,name,book_name):
             if book_name in self.listofbooks:
-                self.lendedbooklist[book_name] = [name,datetime.datetime.today().strftime("%H:%M:%S %h,%d,%Y")]
+                self.borrowedbooklist[book_name] = [name,datetime.datetime.today().strftime("%H:%M:%S %h,%d,%Y")]
                 self.listofbooks.remove(book_name)
-                print("Lended")
+                print("Borrowed")
             else:
                 try:
-                    print(f"Sorry the book is borrowed by {self.lendedbooklist[book_name][0]}")
+                    print(f"Sorry the book is borrowed by {self.borrowedbooklist[book_name][0]}")
                 except KeyError:
                     print("Sorry The book is not available in the library stock: ")
                 except Exception as e:
@@ -30,8 +31,8 @@ class Library:
     def returnbook(self,clnt_name,book):
             if book not in self.listofbooks:
                 try:
-                    if clnt_name == self.lendedbooklist[book][0]:
-                        self.lendedbooklist.pop(book)
+                    if clnt_name == self.borrowedbooklist[book][0]:
+                        self.borrowedbooklist.pop(book)
                         self.listofbooks.append(book)
                         print("Returned")
                     else:
@@ -42,7 +43,7 @@ class Library:
             else:
                 try:
                     if book in self.listofbooks:
-                        print("You cannot return the book because the book is not lended by you")
+                        print("You cannot return the book because the book is not borrowed by you")
                 except Exception as e:
                     print(e)
 
@@ -53,9 +54,9 @@ class Library:
         except ValueError:
             print("Book is not in Library")
 
-    def lendedbooklist1(self):
-        if not self.lendedbooklist:
-            print("No book lended!!!")
+    def borrowedbooklist1(self):
+        if not self.borrowedbooklist:
+            print("No book borrowed!!!")
         else:         
-            for key,values in self.lendedbooklist.items():
+            for key,values in self.borrowedbooklist.items():
                 print(f"{values[0]} has taken {key} on {values[1]}") 

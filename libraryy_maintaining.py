@@ -20,7 +20,7 @@ if __name__ == '__main__':
                        "4. Donate a book to Library\n"
                        "5. Quit\n"
                        "6. Delete a book from Library(Only for Admin)\n"
-                       "7.See the list of books borrowed and by whom(Only for Admin)\n"
+                       "7. See the list of books borrowed and by whom(Only for Admin)\n"
                        ">>> ").rstrip())
 
         if option == 1 :
@@ -29,7 +29,7 @@ if __name__ == '__main__':
         elif option == 2:
             client_name = input("Please Provide your Full name: ").capitalize()
             book_name = input("Which book you want to Lend: ").capitalize().rstrip()
-            l1.lendbooks(client_name.lower(),book_name)
+            l1.borrowbooks(client_name.lower(),book_name)
 
         elif option == 3:
             client_name = input("Please Provide your Full name: ")
@@ -59,6 +59,7 @@ if __name__ == '__main__':
                 if username_by_user == username and password_by_user == password:
                     db = input("Enter bookname which you want to delete: ").capitalize().rstrip()
                     l1.deletebook(db)
+                    break
                 else:
                     print("Wrong Credentials!!!")
                     option = int(input("Want to try more Press 1 otherwise Press any key to exit: "))
@@ -67,8 +68,20 @@ if __name__ == '__main__':
                     else:
                         break
 
-        elif option == 7:
-            l1.lendedbooklist1()
+        elif option == 7:            
+             while True:
+                username_by_user = input("Enter Your User Name: ")
+                password_by_user = input("Enter Your Paasword: ")
+                if username_by_user == username and password_by_user == password:
+                    l1.borrowedbooklist1()
+                    break
+                else:
+                    print("Wrong Credentials!!!")
+                    option = int(input("Want to try more Press 1 otherwise Press any key to exit: "))
+                    if option == 1:
+                        continue
+                    else:
+                        break
 
         else:
             print("Wrong input, Please Enter a valid Input:").rstrip()
