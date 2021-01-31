@@ -15,28 +15,33 @@ if __name__ == '__main__':
         print(f"\n Welcome to the {l1.library_name}.\n")
         print("Press :-")
         option = int(input("1. To see the list of available books in Library\n"
-                       "2. Borrow a book from Library\n"
-                       "3. Return a borrowed book\n"
-                       "4. Donate a book to Library\n"
-                       "5. Quit\n"
-                       "6. Delete a book from Library(Only for Admin)\n"
-                       "7. See the list of books borrowed and by whom(Only for Admin)\n"
+                        "2. Search a book in the library"
+                       "3. Borrow a book from Library\n"
+                       "4. Return a borrowed book\n"
+                       "5. Donate a book to Library\n"
+                       "6. Quit\n"
+                       "7. Delete a book from Library(Only for Admin)\n"
+                       "8. See the list of books borrowed and by whom(Only for Admin)\n"
                        ">>> ").rstrip())
 
         if option == 1 :
             l1.displaybooks()
 
         elif option == 2:
+            book_name = input("Enter the book name to Search: ")
+            l1.searchbookbyname(book_name)
+
+        elif option == 3:
             client_name = input("Please Provide your Full name: ").capitalize()
             book_name = input("Which book you want to Lend: ").capitalize().rstrip()
             l1.borrowbooks(client_name.lower(),book_name)
 
-        elif option == 3:
+        elif option == 4:
             client_name = input("Please Provide your Full name: ")
             book_name = input("Which book you want to Return: ").capitalize().rstrip()
             l1.returnbook(client_name.lower(),book_name)
 
-        elif option == 4:
+        elif option == 5:
             bookdname = input("Which book you want to Donate: ").capitalize().rstrip()
             l1.donate(bookdname)
             while True:
@@ -49,10 +54,10 @@ if __name__ == '__main__':
                 else:
                     print("Wrong Input!!! Enter a valid input.")
 
-        elif option == 5:
+        elif option == 6:
             exit()
 
-        elif option == 6:
+        elif option == 7:
             while True:
                 username_by_user = input("Enter Your User Name: ")
                 password_by_user = input("Enter Your Paasword: ")
@@ -68,7 +73,7 @@ if __name__ == '__main__':
                     else:
                         break
 
-        elif option == 7:            
+        elif option == 8:            
              while True:
                 username_by_user = input("Enter Your User Name: ")
                 password_by_user = input("Enter Your Paasword: ")
@@ -82,6 +87,7 @@ if __name__ == '__main__':
                         continue
                     else:
                         break
+
 
         else:
             print("Wrong input, Please Enter a valid Input:").rstrip()
