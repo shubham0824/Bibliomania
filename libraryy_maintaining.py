@@ -15,7 +15,7 @@ if __name__ == '__main__':
         print(f"\n Welcome to the {l1.library_name}.\n")
         print("Press :-")
         option = int(input("1. To see the list of available books in Library\n"
-                        "2. Search a book in the library"
+                        "2. Search a book in the library\n"
                        "3. Borrow a book from Library\n"
                        "4. Return a borrowed book\n"
                        "5. Donate a book to Library\n"
