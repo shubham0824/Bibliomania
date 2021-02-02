@@ -28,6 +28,10 @@ if __name__ == '__main__':
             l1.displaybooks()
 
         elif option == 2:
+            user_input = input("Press:- \n"
+                                "1. Search by title\n"
+                                "2. Search by ISBN number\n"
+                                "3. Search by author name\n")
             book_name = input("Enter the book name to Search: ").capitalize().rstrip()
             l1.searchbookbyname(book_name)
 
