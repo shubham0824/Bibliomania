@@ -102,3 +102,81 @@ if __name__ == '__main__':
             else:
                 print("Enter a valid input please:")
 
+
+
+
+
+
+
+
+
+
+
+
+# listofbooks = {'python':
+#     {
+#         'isbn':'1-7632-834',
+#         'author':'a'
+#     },
+#     'c++':
+#     {
+#         'isbn':'1-49857-2543',
+#         'author':'b'
+#     },
+#     'java':
+#     {
+#         'isbn':'2-48573-345790',
+#         'author':'c'
+#     },
+#     'javascript':
+#     {
+#         'isbn':'2-55353095-305',
+#         'author':'d'
+#     },
+#     'django':
+#     {
+#         'isbn':'2-35457-25895',
+#         'author':'e'
+#     },
+#     'flask':
+#     {
+#         'isbn':'2-386734-2353453',
+#         'author':'f'
+#     },
+#     'flutter':
+#     {
+#         'isbn':'2-4398734-58498734',
+#         'author':'g'
+#     },
+#     'kotlin':
+#     {
+#         'isbn':'2-59873653-983534',
+#         'author':'h'
+#     },
+#     'react':
+#     {
+#         'isbn':'9-4587634-34975634',
+#         'author':'i'
+#     },
+#     'angular':
+#     {
+#         'isbn':'32-987637-985345',
+#         'author':'j'
+#     },
+#     'nodejs':
+#     {
+#         'isbn':'2-4357634578-59348',
+#         'author':'k'
+#     },
+#     'mongodb':
+#     {
+#         'isbn':'3-8327650-87534',
+#         'author':'l'
+#     },
+#     'vuejs':
+#     {
+#         'isbn':'2-43875-59834567',
+#         'author':'m'
+#     },
+# }
+
