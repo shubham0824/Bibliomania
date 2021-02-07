@@ -1,5 +1,6 @@
 from library_class import Library
 from Credentials import credential
+from books import listofbooks
 username, password = credential()
           
 
@@ -28,12 +29,15 @@ if __name__ == '__main__':
             l1.displaybooks()
 
         elif option == 2:
-            user_input = input("Press:- \n"
-                                "1. Search by title\n"
+            user_input = int(input("Press:- \n"
+                                "1. Search by book name\n"
                                 "2. Search by ISBN number\n"
-                                "3. Search by author name\n")
-            book_name = input("Enter the book name to Search: ").capitalize().rstrip()
-            l1.searchbookbyname(book_name)
+                                "3. Search by author name\n"))
+            if user_input == 1:
+                book_name = input("Enter the book name to Search: ").capitalize().rstrip()
+                l1.searchbookbytitle(book_name)
+            elif user_input == 2:
+        
 
         elif option == 3:
             client_name = input("Please Provide your Full name: ").capitalize()
@@ -105,82 +109,3 @@ if __name__ == '__main__':
                 continue
             else:
                 print("Enter a valid input please:")
-
-
-
-
-
-
-
-
-
-
-
-
-# listofbooks = {'python':
-#     {
-#         'isbn':'1-7632-834',
-#         'author':'a'
-#     },
-#     'c++':
-#     {
-#         'isbn':'1-49857-2543',
-#         'author':'b'
-#     },
-#     'java':
-#     {
-#         'isbn':'2-48573-345790',
-#         'author':'c'
-#     },
-#     'javascript':
-#     {
-#         'isbn':'2-55353095-305',
-#         'author':'d'
-#     },
-#     'django':
-#     {
-#         'isbn':'2-35457-25895',
-#         'author':'e'
-#     },
-#     'flask':
-#     {
-#         'isbn':'2-386734-2353453',
-#         'author':'f'
-#     },
-#     'flutter':
-#     {
-#         'isbn':'2-4398734-58498734',
-#         'author':'g'
-#     },
-#     'kotlin':
-#     {
-#         'isbn':'2-59873653-983534',
-#         'author':'h'
-#     },
-#     'react':
-#     {
-#         'isbn':'9-4587634-34975634',
-#         'author':'i'
-#     },
-#     'angular':
-#     {
-#         'isbn':'32-987637-985345',
-#         'author':'j'
-#     },
-#     'nodejs':
-#     {
-#         'isbn':'2-4357634578-59348',
-#         'author':'k'
-#     },
-#     'mongodb':
-#     {
-#         'isbn':'3-8327650-87534',
-#         'author':'l'
-#     },
-#     'vuejs':
-#     {
-#         'isbn':'2-43875-59834567',
-#         'author':'m'
-#     },
-# }
-

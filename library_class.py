@@ -12,7 +12,7 @@ class Library:
         for books in self.listofbooks:
             print(books)
 
-    def searchbookbyname(self,book_name):
+    def searchbookbytitle(self,book_name):
         if book_name in self.listofbooks:
             print("Here is your search result:-\n")
             print(book_name)
