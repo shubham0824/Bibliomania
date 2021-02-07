@@ -8,7 +8,7 @@ username, password = credential()
 
 if __name__ == '__main__':
 
-    listofbooks = ["Python","C++","Java","Javascript","Django","Flask","Flutter","Kotlin","React","Angular","Node.js","Mongodb"]
+    # listofbooks = ["Python","C++","Java","Javascript","Django","Flask","Flutter","Kotlin","React","Angular","Node.js","Mongodb"]
 
     l1 = Library(listofbooks,"Shubham's library")
 
@@ -37,7 +37,11 @@ if __name__ == '__main__':
                 book_name = input("Enter the book name to Search: ").capitalize().rstrip()
                 l1.searchbookbytitle(book_name)
             elif user_input == 2:
-        
+                isbn_number = input("Enter the ISBN number to Search: ").rstrip()
+                l1.searchbookbyisbn(isbn_number)
+            elif user_input == 3:
+                author_name = input("Enter the author name to Search: ").rstrip()
+                l1.searchbookbyauthor(author_username)
 
         elif option == 3:
             client_name = input("Please Provide your Full name: ").capitalize()
