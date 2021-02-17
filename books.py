@@ -64,3 +64,39 @@ listofbooks = {'Python':
         'author':'m'
     },
 }
+
+
+
+
+import requests
+
+# # r2 = requests.get('https://www.googleapis.com/books/v1/volumes?q=python&printType=books&key=AIzaSyD7Ja_vRi7qH1_F2iLn-GZv3nc_f0O2vdc')
+
+# # r2_json = r2.json()
+# # for i in range(len(r2_json['items'])):
+# #     print(r2_json['items'][i]['volumeInfo']['title'])
+
+
+
+# r1 = requests.get('https://www.googleapis.com/books/v1/volumes?q=""+inauthor:"Dan+bader"&key=AIzaSyD7Ja_vRi7qH1_F2iLn-GZv3nc_f0O2vdc')
+
+# print(r1.text)
+
+# r1_json = r1.json()
+# author_name = 'kd'
+# print(f"All books that are written by {author_name}:-\n")
+# for i in range(len(r1_json['items'])):
+#     print(r1_json['items'][i]['volumeInfo']['title'])
+
+
+
+
+# r3 = requests.get(f'https://www.googleapis.com/books/v1/volumes?q=""+isbn:9781775093305&key=AIzaSyD7Ja_vRi7qH1_F2iLn-GZv3nc_f0O2vdc')
+
+# r3_json = r3.json()
+# print(r3.text)
+
+# print(f"Book Name: {r3_json['items'][0]['volumeInfo']['title']}")
+# print(f"ISBN: {r3_json['items'][0]['volumeInfo']['industryIdentifiers'][1]['identifier']}")
+# for i in range(len(r3_json['items'][0]['volumeInfo']['authors'])):
+#     print(f"Authors Name: {r3_json['items'][0]['volumeInfo']['authors'][i]}")

@@ -1,23 +1,38 @@
 import datetime
+import requests
 
 class Library:
-    def __init__(self,listofbooks,library_name):
+    def __init__(self,library_name):
         date_time = datetime.datetime.today()
         self.borrowedbooklist = {}
-        self.listofbooks = listofbooks
         self.library_name = library_name
 
-    def displaybooks(self):
-        print(f"\n We have following books in our: {self.library_name}\n")
-        for books in self.listofbooks:
-            print(books)
 
-    def searchbookbytitle(self,book_name):
-        if book_name in self.listofbooks:
-            print("Here is your search result:-\n")
-            print(book_name)
-        else:
-            print("No results found")
+    def searchbookbytitle(self,book_title):
+        r = requests.get(f'https://www.googleapis.com/books/v1/volumes?q={book_title}&printType=books&key=AIzaSyD7Ja_vRi7qH1_F2iLn-GZv3nc_f0O2vdc')
+        r_json = r.json()
+        for i in range(len(r_json['items'])):
+            print(r_json['items'][i]['volumeInfo']['title'])
+
+
+    def searchbookbyisbn(self,isbn_number):
+        r = requests.get(f'https://www.googleapis.com/books/v1/volumes?q=""+isbn:{isbn_number}&key=AIzaSyD7Ja_vRi7qH1_F2iLn-GZv3nc_f0O2vdc')
+        r_json = r.json()
+        print(f"Book Name: {r_json['items'][0]['volumeInfo']['title']}")
+        print(f"ISBN: {r_json['items'][0]['volumeInfo']['industryIdentifiers'][1]['identifier']}")
+        for i in range(len(r_json['items'][0]['volumeInfo']['authors'])):
+            print(f"Authors Name: {r_json['items'][0]['volumeInfo']['authors'][i]}")
+
+
+    def searchbookbyauthor(self,author_name):
+        split_author = author_name.split(" ")
+        concat_author_name = '+'.join(split_author).capitalize()
+        r1 = requests.get(f'https://www.googleapis.com/books/v1/volumes?q=""+inauthor:"{concat_author_name}"&key=AIzaSyD7Ja_vRi7qH1_F2iLn-GZv3nc_f0O2vdc')
+        r1_json = r1.json()
+        print(f"All books that are written by {author_name}:-\n")
+        for i in range(len(r1_json['items'])):
+            print(r1_json['items'][i]['volumeInfo']['title'])
+
 
     def borrowbooks(self,name,book_name):
             if book_name in self.listofbooks:
@@ -32,8 +47,6 @@ class Library:
                 except Exception as e:
                     print(e)
 
-    def donate(self,bookdonatename):
-        self.listofbooks.append(bookdonatename)
 
     def returnbook(self,clnt_name,book):
             if book not in self.listofbooks:
@@ -53,13 +66,7 @@ class Library:
                         print("You cannot return the book because the book is not borrowed by you")
                 except Exception as e:
                     print(e)
-
-    def deletebook(self,bookname):
-        try:
-            self.listofbooks.remove(bookname)
-            print("Deleted")
-        except ValueError:
-            print("Book is not in Library")
+            
 
     def borrowedbooklist1(self):
         if not self.borrowedbooklist:
