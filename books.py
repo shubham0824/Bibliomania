@@ -91,12 +91,12 @@ import requests
 
 
 
-# r3 = requests.get(f'https://www.googleapis.com/books/v1/volumes?q=""+isbn:9781775093305&key=AIzaSyD7Ja_vRi7qH1_F2iLn-GZv3nc_f0O2vdc')
+r3 = requests.get(f'https://www.googleapis.com/books/v1/volumes?q=""+isbn:1775093301&key=AIzaSyD7Ja_vRi7qH1_F2iLn-GZv3nc_f0O2vdc')
 
-# r3_json = r3.json()
-# print(r3.text)
+r3_json = r3.json()
+print(r3.text)
 
-# print(f"Book Name: {r3_json['items'][0]['volumeInfo']['title']}")
-# print(f"ISBN: {r3_json['items'][0]['volumeInfo']['industryIdentifiers'][1]['identifier']}")
-# for i in range(len(r3_json['items'][0]['volumeInfo']['authors'])):
-#     print(f"Authors Name: {r3_json['items'][0]['volumeInfo']['authors'][i]}")
+print(f"Book Name: {r3_json['items'][0]['volumeInfo']['title']}")
+print(f"ISBN: {r3_json['items'][0]['volumeInfo']['industryIdentifiers'][1]['identifier']}")
+for i in range(len(r3_json['items'][0]['volumeInfo']['authors'])):
+    print(f"Author's Name: {r3_json['items'][0]['volumeInfo']['authors'][i]}")

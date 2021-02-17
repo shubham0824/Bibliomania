@@ -19,7 +19,7 @@ class Library:
         r = requests.get(f'https://www.googleapis.com/books/v1/volumes?q=""+isbn:{isbn_number}&key=AIzaSyD7Ja_vRi7qH1_F2iLn-GZv3nc_f0O2vdc')
         r_json = r.json()
         print(f"Book Name: {r_json['items'][0]['volumeInfo']['title']}")
-        print(f"ISBN: {r_json['items'][0]['volumeInfo']['industryIdentifiers'][1]['identifier']}")
+        print(f"ISBN: {isbn_number}")
         for i in range(len(r_json['items'][0]['volumeInfo']['authors'])):
             print(f"Authors Name: {r_json['items'][0]['volumeInfo']['authors'][i]}")
 
