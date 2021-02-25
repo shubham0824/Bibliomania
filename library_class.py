@@ -34,19 +34,16 @@ class Library:
             print(r1_json['items'][i]['volumeInfo']['title'])
 
 
-    def borrowbooks(self,name,book_name):
-            if book_name in self.listofbooks:
-                self.borrowedbooklist[book_name] = [name,datetime.datetime.today().strftime("%H:%M:%S %h,%d,%Y")]
-                self.listofbooks.remove(book_name)
-                print("Borrowed")
-            else:
+    def borrowbooks(self,name):
+            choices = input("1. Book Name or ISBN Number or Author's Name: ")
+            try:
+                choices = int(choices)
+                self.searchbookbyisbn(choices)
+            except:
                 try:
-                    print(f"Sorry the book is borrowed by {self.borrowedbooklist[book_name][0]}")
-                except KeyError:
-                    print("Sorry The book is not available in the library stock: ")
-                except Exception as e:
-                    print(e)
-
+                    self.searchbookbytitle(choices)
+                except:
+                    self.searchbookbyauthor(choices)
 
     def returnbook(self,clnt_name,book):
             if book not in self.listofbooks:

@@ -49,8 +49,11 @@ if __name__ == '__main__':
 
         elif option == 2:
             client_name = input("Please Provide your Full name: ").capitalize()
-            book_name = input("Which book you want to Lend: ").capitalize().rstrip()
-            l1.borrowbooks(client_name.lower(),book_name)
+            choice = input("Borrow by\n
+                            "1. Book Name\n
+                            "2. ISBN No.\n"
+                            "3. Author's Name")
+            l1.borrowbooks(client_name.lower())
 
         elif option == 3:
             client_name = input("Please Provide your Full name: ")
