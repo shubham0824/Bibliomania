@@ -34,16 +34,16 @@ class Library:
             print(r1_json['items'][i]['volumeInfo']['title'])
 
 
-    def borrowbooks(self,name):
-            choices = input("1. Book Name or ISBN Number or Author's Name: ")
-            try:
-                choices = int(choices)
-                self.searchbookbyisbn(choices)
-            except:
-                try:
-                    self.searchbookbytitle(choices)
-                except:
-                    self.searchbookbyauthor(choices)
+    def borrowbooks(self,name,choice):
+        if choice == 1:
+            self.searchbookbytitle
+        elif choice == 2:
+            self.searchbookbyisbn
+        elif choice == 3:
+            self.searchbookbyauthor
+        else:
+            print("Wrong Input!!!")
+            exit()
 
     def returnbook(self,clnt_name,book):
             if book not in self.listofbooks:
